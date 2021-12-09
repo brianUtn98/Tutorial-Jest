@@ -3,8 +3,12 @@ class Producto{
     precioBruto;
 
     constructor(detalle, precioBruto){
+        if(!detalle || !precioBruto){
+           throw new Error("Parametros obligatorios")
+        }
         this.detalle = detalle;
         this.precioBruto = precioBruto;
+        
     }
 
     precio(){

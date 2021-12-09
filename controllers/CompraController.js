@@ -15,14 +15,20 @@ class CompraController {
   }
 
   create(request, response) {
-    const items = request.body.items.map(
-      (producto) => new Producto(producto.detalle, producto.precioBruto)
-    );
-
-    const compra = new Compra(request.body.comprador, items);
-    this.service.create(compra).then(result => {
-        response.status(200).json(result);
-    }).catch(error => response.status(406).json(error))
+    try{
+      const items = request.body.items.map(
+        (producto) => new Producto(producto.detalle, producto.precioBruto)
+      );
+  
+      const compra = new Compra(request.body.comprador, items);
+      this.service.create(compra).then(result => {
+          response.status(200).json(result);
+      })
+    }
+    catch(error){
+      response.status(406).json(error)
+    }
+    
   }
 
   retrieve(request,response){
