@@ -10,7 +10,8 @@ class CompraController {
   constructor() {
     this.service = new CompraService();
     this.model = CompraModel;
-    console.log(this.service);
+
+    this.create.bind(this);
   }
 
   create(request, response) {
@@ -19,15 +20,43 @@ class CompraController {
     );
 
     const compra = new Compra(request.body.comprador, items);
-    console.log(compra.getProps())
-
-    CompraModel.create(compra.getProps()).then(result => {
+    this.service.create(compra).then(result => {
         response.status(200).json(result);
     }).catch(error => response.status(406).json(error))
   }
 
   retrieve(request,response){
-    CompraModel.find({}).then(result => {
+    this.service.retrieve().then(result => {
+      response.status(200).json(result);
+    })
+  }
+
+  findById(request,response){
+    const id = request.params.id;
+
+    this.service.findById(id).then(result => {
+      if(result.length > 0){
+        response.status(200).json(result);
+      } else {
+        response.status(404).json({message: "Error - No existe compra con ese id"});
+      }
+    })
+  }
+
+  deleteById(request,response){
+    const id = request.params.id;
+
+    this.service.deleteById(id).then(result => {
+      if(result.deletedCount > 0){
+        response.status(200).json({message: "Compra borrada exitosamente"});
+      } else {
+        response.status(404).json({message: "La compra que desea borrar no existe"});
+      }
+    })
+  }
+
+  delete(request,response){
+    this.service.deleteMany().then(result => {
       response.status(200).json(result);
     })
   }

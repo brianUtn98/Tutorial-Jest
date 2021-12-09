@@ -1,0 +1,1 @@
+GET http://localhost:4000/compras/61b18ca32d283a2dcdff6a86

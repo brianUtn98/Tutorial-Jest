@@ -10,7 +10,6 @@ class Compra{
     }
 
     subtotal(){
-        console.log(this.items.map(p => p.precio()))
         return this.items.map(p => p.precio()).reduce((a,b) => a + b,0);
     }
 

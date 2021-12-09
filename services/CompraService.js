@@ -1,20 +1,31 @@
-import CompraModel from  "../model/dataAccess/CompraModel.js"
+import CompraModel from "../model/dataAccess/CompraModel.js";
 
-class CompraService{
-    model;
-    
-    constructor(){
-        console.log("Creando compra serivce");
-        this.model = CompraModel;
-    }
+class CompraService {
+  model;
 
-    create(compra){
-        return this.model.create(compra.getProps());
-    }
+  constructor() {
+    this.model = CompraModel;
+  }
 
-    retrieve(){
-        return this.model.find({});
-    }
+  create(compra) {
+    return this.model.create(compra.getProps());
+  }
+
+  retrieve() {
+    return this.model.find({});
+  }
+
+  findById(id) {
+    return this.model.find({ _id: id });
+  }
+
+  deleteById(id){
+    return this.model.deleteOne({_id: id});
+  }
+
+  deleteMany(){
+    return this.model.deleteMany({});
+  }
 }
 
 export default CompraService;

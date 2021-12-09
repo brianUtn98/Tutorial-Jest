@@ -1,0 +1,1 @@
+DELETE http://localhost:4000/compras/61b1f5aff2f93c16bebef905
