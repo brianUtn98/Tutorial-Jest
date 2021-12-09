@@ -14,3 +14,5 @@ De los productos, la información que se conoce es:
 * Detalle
 * Precio sin iva
 * Se calcula el precio como su precio sin iva + 21%
+
+1. Se pide realizar los casos de prueba
