@@ -1,0 +1,16 @@
+POST http://localhost:4000/compras
+content-type: application/json
+
+{
+    "comprador": "Brian Monroy",
+    "items": [
+        {
+            "detalle": "Heladera",
+            "precioBruto": "35000"
+        },
+        {
+            "detalle": "Licuadora",
+            "precioBruto": "5000"
+        }
+    ]
+}
