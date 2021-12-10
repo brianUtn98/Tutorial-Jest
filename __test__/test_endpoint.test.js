@@ -149,6 +149,22 @@ describe("",() => {
                 expect(response.body.length).toBeGreaterThan(3)
             })
         })
+
+        test("Recuperar una compra con id existente es correcto",async () => {
+            await api.get("/compras").then(async result => {
+                const id = result.body[0]._id;
+                await api.get(`/compras/${id}`).expect(200);
+            })
+        })
+
+        test("Recuperar una compra deberia tener props de compra", async () => {
+            await api.get("/compras").then(async result => {
+                const id = result.body[0]._id;
+                await api.get(`/compras/${id}`).then(async result => {
+                    console.log(result.body);
+                });
+            })
+        })
     })
     
 })
