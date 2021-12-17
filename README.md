@@ -15,4 +15,9 @@ De los productos, la información que se conoce es:
 * Precio sin iva
 * Se calcula el precio como su precio sin iva + 21%
 
-### Se pide realizar los casos de prueba
+### Se pide crear los casos de prueba para las siguientes situaciones
+* Que se calcule correctamente el precio de un producto
+* Que se calcule correctamente el subtotal de una compra
+* Que se calcule correctamente el total de una compra
+* Que se cree correctamente un producto
+* Que se cree correctamente una compra
