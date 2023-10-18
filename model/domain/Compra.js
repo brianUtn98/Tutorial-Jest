@@ -4,13 +4,15 @@ class Compra{
     fecha;
 
     constructor(comprador,items){
+        if(!items){
+            throw new Error("Parametros obligatorios");
+        }
         this.comprador = comprador;
         this.items = items;
-        this.fecha = new Date();
+        this.fecha = new Date().toLocaleDateString();
     }
 
     subtotal(){
-        console.log(this.items.map(p => p.precio()))
         return this.items.map(p => p.precio()).reduce((a,b) => a + b,0);
     }
 

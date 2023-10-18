@@ -15,7 +15,7 @@ app.use(router);
 mongoose.connect("mongodb+srv://brianUtn98:ang3l_98@cluster0.u40ir.mongodb.net/tallerTesting?retryWrites=true&w=majority");
 
 const server = app.listen(4000,"localhost",()=>{
-    console.log(`Servidor funcionando en localhost:4000`);
+    //console.log(`Servidor funcionando en localhost:4000`);
 });
 
 export {app,server};
